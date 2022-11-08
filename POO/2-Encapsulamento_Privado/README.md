@@ -24,4 +24,3 @@
 
 * (+) publico.
 * (-) privado.
-* apresentar_documento: só é visivel dentro da classe.
