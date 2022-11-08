@@ -1,0 +1,36 @@
+## Descrição de Diagramas UML
+
+* (+) - Publico
+* (-) - Privado
+
+|               CLASSE               |            DESCRIÇÃO            |
+| :--------------------------------: | :-----------------------------: |
+| <u>+variavel_de_classe: string</u> |   Variável Estática da Classe   |
+|     +atributo_publico: string      |        Atributo Publico         |
+|      -atributo_privado: bool       |        Atributo Privado         |
+|                                    |                                 |
+|      +metodo_publico(): None       |  Método Publico e Tipo Retorno  |
+|       -metodo_privado(): int       |  Método Privado e Tipo Retorno  |
+| <u>+metodo_estatico(): None  </u>  | Método Estático e Tipo Retorono |
+
+
+```plantuml
+@startuml
+package "Diagrama UML" #DDDDDD {
+    class Pessoa {
+        + acender_luz (interruptor: Interruptor)
+        + apagar_luz (interruptor: Interruptor)
+        + domir()
+    }
+
+    class Interruptor {
+        + comodo: string
+        + acender(): None
+        + apagar(): None
+
+    }
+
+    Pessoa --> Interruptor
+
+}
+@enduml
