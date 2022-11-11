@@ -31,8 +31,15 @@ flowchart TB
 
 ```
 
-
 </center>
+<hr>
 
+# Engine Configuration
+
+* Dialect: especificar qual banco estamos trabalhando, por exemplo postgres, mysql. 
+* Poll: Usada para manter conexões de longa execução na memória para reutilização eficiente, bem como para fornecer gerenciamento para o número total de conexões que um aplicativo pode usar simultaneamente. Um Query para cada pull (1-1). Número default do SQLAlchemy é 5 (pool_size).
+
+ 
+<br><br><br>
 
 Documentação SQLAlchemy: <https://www.sqlalchemy.org/>
