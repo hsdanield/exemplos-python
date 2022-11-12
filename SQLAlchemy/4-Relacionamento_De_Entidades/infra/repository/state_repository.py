@@ -22,6 +22,22 @@ class StateRepository:
                 db.session.rollback()
                 raise exception
 
+    # LIMIT: total_page TAMANHO DA PAGINA
+    # OFFSET: numero da pagina
+    def select_by_page(self, page, page_size):
+        with DBConnectionHandler() as db:
+            try:
+                data = (
+                    db.session.query(State)
+                    .limit(page_size)
+                    .offset(page_size * page)
+                    .all()
+                )
+                return data
+            except Exception as exception:
+                db.session.rollback()
+                raise exception
+
     def select_id(self, id_state):
         with DBConnectionHandler() as db:
             try:

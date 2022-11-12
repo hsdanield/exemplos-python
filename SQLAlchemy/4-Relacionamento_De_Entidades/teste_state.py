@@ -5,44 +5,25 @@ from infra.repository.country_repository import CountryRepository
 from infra.entities.state import State
 
 
+class Resp:
+    def get_response(self, data):
+        return {"data": data}
+
+
 state_repository = StateRepository()
 country_repository = CountryRepository()
 
-data_state = state_repository.select_all()
-data_country = country_repository.select_all()
+# data_state = state_repository.select_all()
 
-print(data_country)
-print()
+page = 1
+page_size = 50
 
-# state_repository.insert(state=State(
-#     ibge_code = 111,
-#     initials="DC",
-#     name="Washington",
-#     id_country=2
-# ))
+page = page - 1
 
-# SELECT BY ID
-# print("select_id")
-# br = state_repository.select_id(1)
-# print(br)
-
-# SELECT ALL
-# print("select_all")
-# data = state_repository.select_all()
-# print(data)
+state_page1 = state_repository.select_by_page(page=page, page_size=page_size)
+country_page1 = country_repository.select_by_page(page=page, page_size=page_size)
 
 
-# # UPDATE
-# print("update")
-# repo_country.update(
-#     id_country=10, country=Country(initials="EU", name="Estados Unidos da América")
-# )
-
-# # SELECT ALL
-# print("select_all")
-# data = repo_country.select_all()
-# print(data)
-
-# # DELETE
-# print("delete")
-# repo_country.delete(10)
+print(Resp().get_response(country_page1))
+# print("-" * 50)
+# print(country_page1)
