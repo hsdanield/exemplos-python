@@ -1,5 +1,10 @@
 from infra.configs.connection import DBConnectionHandler
+from infra.entities.country import Country
 from sqlalchemy import text
+from sqlalchemy import inspect
+
+country_table = inspect(Country).local_table
+print(country_table)
 
 # db_conn = DBConnectionHandler()
 # engine = db_conn.get_engine()
@@ -7,7 +12,6 @@ from sqlalchemy import text
 # class CountryTest:
 #     table_name = "tb_country"
 #     schema = "dev"
-
 
 
 # with engine as db:

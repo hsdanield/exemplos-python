@@ -9,7 +9,7 @@ class DBConnectionHandler:
         self.session = None
 
     def __create_database_engine(self):
-        engine = create_engine(self.__connection_string)
+        engine = create_engine(self.__connection_string, echo=True)
         return engine
 
     def get_engine(self):

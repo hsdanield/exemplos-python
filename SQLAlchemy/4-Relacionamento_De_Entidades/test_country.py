@@ -13,8 +13,8 @@ print(data)
 
 # INSERT
 print()
-# new_country = Country(initials="EUA", name="Estados Unidos")
-# repo_country.insert(new_country)
+new_country = Country(initials="EUA", name="Estados Unidos")
+repo_country.insert(new_country)
 
 # SELECT BY ID
 print("select_id")
