@@ -23,7 +23,10 @@ page = page - 1
 state_page1 = state_repository.select_by_page(page=page, page_size=page_size)
 country_page1 = country_repository.select_by_page(page=page, page_size=page_size)
 
+state_join_country = state_repository.select_join_country()
 
-print(Resp().get_response(country_page1))
+# print(state_page1)
+
+print(state_join_country)
 # print("-" * 50)
 # print(country_page1)

@@ -1,18 +1,22 @@
 from infra.configs.connection import DBConnectionHandler
 from infra.entities.state import State
+from infra.entities.country import Country
 from datetime import datetime
 
 
 class StateRepository:
-    # def select(self):
-    #     with DBConnectionHandler() as db:
-    #         data = (
-    #             db.session.query(Cidades)
-    #             .join(Estados, Cidades.id_estado == Estados.id_estado)
-    #             .with_entities(Cidades.nome, Estados.nome, Estados.sigla)
-    #             .all()
-    #         )
-    #         return data
+    def select_join_country(self):
+        with DBConnectionHandler() as db:
+            data = (
+                db.session.query(State)
+                .join(Country, State.id_country == Country.id_country)
+                .with_entities(
+                    State.name, State.initials, Country.name, Country.initials
+                )
+                .all()
+            )
+            return data
+
     def select_all(self):
         with DBConnectionHandler() as db:
             try:

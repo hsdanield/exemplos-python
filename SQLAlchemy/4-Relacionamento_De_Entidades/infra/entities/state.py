@@ -15,7 +15,6 @@ class State(Base):
     dt_update = Column(DateTime, nullable=False)
     id_country = Column(BigInteger, ForeignKey("tb_country.id_country"))
 
-
     def __repr__(self):
         return f"""State(
                     id_state={self.id_state},
